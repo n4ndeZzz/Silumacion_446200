@@ -1,1 +1,1 @@
-# Sistemas-F-sicos-Interactivos-2---446200
+https://juanferfranco.github.io/simulacion-2026-20/
