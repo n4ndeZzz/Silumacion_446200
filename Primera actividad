@@ -1,24 +1,24 @@
-https://editor.p5js.org/n4ndeZzz/sketches/pcj8TJbi-
+#Navegar la Incertidumbre
+###Informe de concepto — pieza interactiva generativa
 
-# Navegar la Incertidumbre
-### Informe de concepto — pieza interactiva generativa
-
-## El concepto: equilibrio, perturbación, nuevo equilibrio
+##El concepto: equilibrio, perturbación, nuevo equilibrio
 
 Basé esta pieza en el **principio de Le Châtelier**: cuando un sistema en equilibrio es perturbado —un cambio de concentración, de temperatura, de presión— no se rompe ni se apaga. Se reacomoda. Desplaza su equilibrio para contrarrestar la alteración y encuentra un nuevo estado estable, distinto al anterior pero igual de coherente.
 
 Quise que el visitante viviera esa misma lógica antes de entrar al festival, sin que nadie se lo explicara con texto. La red de nodos que ve en pantalla es un sistema en equilibrio dinámico: se mueve, respira, redistribuye energía entre sus partes todo el tiempo, incluso sin nadie presente. Cuando el visitante se acerca, no está "controlando" nada — está actuando como el reactivo externo que perturba una reacción: sube la probabilidad de propagación de energía en esa zona y genera una fuerza que aleja a los nodos, como una repulsión molecular. El sistema no se congela ni obedece: se reorganiza alrededor de esa perturbación, y cuando el visitante se retira, no vuelve al punto exacto de antes — busca un nuevo equilibrio, con la misma lógica que ya tenía.
 
-## Cómo se traduce en comportamiento
+##Cómo se traduce en comportamiento
 
 La red combina varios tipos de aleatoriedad para que ese equilibrio nunca sea estático: **ruido Perlin** mantiene el movimiento base (el sistema en reposo nunca está realmente quieto), una variable de **memoria** hace que pequeñas perturbaciones repetidas construyan tendencias reales, la propagación de energía sigue una **distribución normal** entre nodos vecinos (la mayoría de los reacomodos son moderados), y un mecanismo de **vuelo de Lévy** introduce, con muy baja probabilidad, un salto de energía a un punto lejano de la red — el equivalente a una reacción que salta a un estado inesperado. La presencia del visitante es la única variable externa: no dibuja ni mueve nada directamente, altera las reglas del sistema, igual que un cambio de concentración altera una reacción sin que nadie mueva las moléculas a mano.
 
-## Contexto de la feria
+##Contexto de la feria
 
 Pensé la pieza como la **pantalla de entrada** de un festival de ciencia y creatividad: lo primero que el visitante encuentra antes de cruzar hacia el resto del evento. Por su formato (9:16, pantalla completa, tiempo real) funciona mejor como umbral de tránsito que como estación fija.
 
 **Ubicación del stand.** La colocaría en un pasillo de acceso obligado —el corredor o vestíbulo justo antes de las puertas del festival—, en una pantalla vertical a la altura de los ojos, en un espacio con poca luz ambiente para que el brillo de la red se perciba con claridad. Un pasillo garantiza que el visitante pase lo bastante cerca como para perturbar el sistema sin tener que buscarlo.
 
-## Por qué representa la idea
+##Por qué representa la idea
 
 El festival empieza, literalmente, con un sistema en equilibrio que el visitante perturba con su sola presencia — y que responde no resistiéndose, sino reacomodándose. Es la misma disposición con la que debería cruzar la puerta: entender que entrar a un espacio de ciencia y creatividad también lo altera a él, y que ese reacomodo es, precisamente, el punto.
+
+https://editor.p5js.org/n4ndeZzz/sketches/pcj8TJbi-
