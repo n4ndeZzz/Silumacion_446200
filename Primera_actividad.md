@@ -38,7 +38,7 @@ La diferencia entre ambas fases fue clave: pasar de ajustar números por conjetu
 ## Prototipo
 
 `sketch.js` — código fuente final del sistema.
-*(Aquí va el enlace al proyecto en el editor de p5.js o al repositorio donde lo hayas publicado.)*
+https://editor.p5js.org/n4ndeZzz/full/pcj8TJbi-
 
 ## Autoevaluación de la rúbrica
 
