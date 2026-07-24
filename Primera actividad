@@ -1,24 +1,42 @@
-# Navegar la Incertidumbre
-###Informe de concepto — pieza interactiva generativa
+# Bitácora de proceso — Navegar la Incertidumbre
 
-##El concepto: equilibrio, perturbación, nuevo equilibrio
+## Punto de partida
 
-Basé esta pieza en el **principio de Le Châtelier**: cuando un sistema en equilibrio es perturbado —un cambio de concentración, de temperatura, de presión— no se rompe ni se apaga. Se reacomoda. Desplaza su equilibrio para contrarrestar la alteración y encuentra un nuevo estado estable, distinto al anterior pero igual de coherente.
+Ya tenía construido el sistema base en p5.js: una malla de nodos conectados que se mueve con ruido Perlin, propaga energía entre vecinos con una distribución normal, y ocasionalmente salta con un vuelo de Lévy. Visualmente funcionaba bien en reposo. El problema era el quinto momento del encargo: **influencia**. El mouse no parecía tener ningún efecto sobre el sistema, y esa era justo la pieza que conectaba al visitante con la idea de perturbar un equilibrio.
 
-Quise que el visitante viviera esa misma lógica antes de entrar al festival, sin que nadie se lo explicara con texto. La red de nodos que ve en pantalla es un sistema en equilibrio dinámico: se mueve, respira, redistribuye energía entre sus partes todo el tiempo, incluso sin nadie presente. Cuando el visitante se acerca, no está "controlando" nada — está actuando como el reactivo externo que perturba una reacción: sube la probabilidad de propagación de energía en esa zona y genera una fuerza que aleja a los nodos, como una repulsión molecular. El sistema no se congela ni obedece: se reorganiza alrededor de esa perturbación, y cuando el visitante se retira, no vuelve al punto exacto de antes — busca un nuevo equilibrio, con la misma lógica que ya tenía.
+## Primeras hipótesis (con ChatGPT)
 
-##Cómo se traduce en comportamiento
+Antes de traer el problema aquí, ya había estado trabajando el diagnóstico con ChatGPT. Las hipótesis que salieron de esa conversación fueron, en orden: que el valor de amplitud del movimiento (`amp = 25 * (n.energy + n.memory)`) era demasiado bajo; que la memoria subía muy lento; que la energía se disipaba demasiado rápido; y, finalmente, que nunca había conectado tres funciones que ya existían en el código (`randomWalk()`, `rareEvent()`, `drawCursor()`) pero que jamás se llamaban dentro de `draw()`. Ese último hallazgo era real y verificable con solo leer el archivo, así que lo traté como el primer punto de corrección.
 
-La red combina varios tipos de aleatoriedad para que ese equilibrio nunca sea estático: **ruido Perlin** mantiene el movimiento base (el sistema en reposo nunca está realmente quieto), una variable de **memoria** hace que pequeñas perturbaciones repetidas construyan tendencias reales, la propagación de energía sigue una **distribución normal** entre nodos vecinos (la mayoría de los reacomodos son moderados), y un mecanismo de **vuelo de Lévy** introduce, con muy baja probabilidad, un salto de energía a un punto lejano de la red — el equivalente a una reacción que salta a un estado inesperado. La presencia del visitante es la única variable externa: no dibuja ni mueve nada directamente, altera las reglas del sistema, igual que un cambio de concentración altera una reacción sin que nadie mueva las moléculas a mano.
+## Cambio de herramienta y depuración real
 
-##Contexto de la feria
+Al retomar el archivo completo, apliqué esa corrección de conexión de funciones y subí los parámetros de amplitud, energía y memoria como se había sugerido. Pero seguía sin ver ningún cambio al mover el mouse. En vez de seguir ajustando valores a ciegas, decidí construir una prueba de depuración directamente sobre el canvas: un overlay que mostraba en tiempo real la posición del mouse, la distancia al nodo más cercano, su energía, su memoria, y un anillo amarillo dibujando el tamaño exacto que ese nodo debería tener según la fórmula real de `drawNodes()`.
 
-Pensé la pieza como la **pantalla de entrada** de un festival de ciencia y creatividad: lo primero que el visitante encuentra antes de cruzar hacia el resto del evento. Por su formato (9:16, pantalla completa, tiempo real) funciona mejor como umbral de tránsito que como estación fija.
+## El hallazgo
 
-**Ubicación del stand.** La colocaría en un pasillo de acceso obligado —el corredor o vestíbulo justo antes de las puertas del festival—, en una pantalla vertical a la altura de los ojos, en un espacio con poca luz ambiente para que el brillo de la red se perciba con claridad. Un pasillo garantiza que el visitante pase lo bastante cerca como para perturbar el sistema sin tener que buscarlo.
+Ese overlay reveló algo que ninguna hipótesis anterior había contemplado: **el mouse sí estaba funcionando perfectamente**. La energía del nodo más cercano se mantenía siempre en `1.9500` — un valor que no era un error, sino el resultado exacto de `2 * 0.975` (el tope máximo de energía, disipado un frame después). El sistema estaba saturado al máximo cerca del cursor. El problema nunca fue que el mouse no hiciera nada; era que el efecto, aunque real y grande, estaba siendo opacado por el movimiento ambiental de fondo (el jitter de ruido Perlin, demasiado activo incluso sin interacción).
 
-##Por qué representa la idea
+## Corrección aplicada
 
-El festival empieza, literalmente, con un sistema en equilibrio que el visitante perturba con su sola presencia — y que responde no resistiéndose, sino reacomodándose. Es la misma disposición con la que debería cruzar la puerta: entender que entrar a un espacio de ciencia y creatividad también lo altera a él, y que ese reacomodo es, precisamente, el punto.
+Con el diagnóstico correcto, la solución fue quitar el overlay de depuración y bajar la intensidad del movimiento ambiental: reduje el rango del ruido Perlin de ±16 a ±4, bajé la velocidad de evolución del campo (`fieldTime`) a la mitad, y reduje tanto la probabilidad como la magnitud de `randomWalk()`. El efecto del mouse no cambió — porque ya funcionaba — pero ahora sí es perceptible frente a un fondo más calmado.
 
+## Repulsión y cierre conceptual
+
+Como último detalle, añadí una fuerza de repulsión real: cada nodo calcula un vector que apunta lejos del cursor cuando está dentro de un radio de 160px, y ese vector se suma a su posición objetivo (no a su posición directa), de forma que el resorte existente lo lleva ahí con inercia. Al alejarse el mouse, la repulsión desaparece y el nodo vuelve solo a su equilibrio.
+
+Ese último ajuste me llevó a redefinir el concepto que sostiene toda la pieza: en vez de dejarlo en un enunciado abstracto de "incertidumbre", lo ligué al **principio de Le Châtelier** — un sistema en equilibrio que, perturbado externamente, se reacomoda para alcanzar un nuevo estado de equilibrio. El visitante no controla el sistema; actúa como el reactivo externo que lo perturba.
+
+## Uso de IA
+
+Usé dos asistentes de IA en momentos distintos del proceso, con roles distintos:
+
+- **ChatGPT**, en una fase inicial, para generar hipótesis rápidas sobre por qué el mouse no parecía tener efecto. Varias de esas hipótesis resultaron ser conjeturas razonables pero no verificadas contra el comportamiento real del sistema.
+- **Claude**, para la depuración real (construir el overlay de prueba directamente en el canvas y confirmar con datos, no con suposiciones, dónde estaba el problema), para aplicar las correcciones de código, para añadir la repulsión, y para ayudarme a redactar tanto el informe de concepto como esta misma bitácora.
+
+La diferencia entre ambas fases fue clave: pasar de ajustar números por conjetura a instrumentar el propio sistema para verlo pensar fue lo que realmente resolvió el problema.
+
+## Prototipo
+
+`sketch.js` — código fuente final del sistema.
+*(Aquí va el enlace al proyecto en el editor de p5.js o al repositorio donde lo hayas publicado.)*
 https://editor.p5js.org/n4ndeZzz/full/pcj8TJbi-
