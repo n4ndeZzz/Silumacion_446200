@@ -1,7 +1,4 @@
 # Bitácora — Errantes / Umbral (deseo vs. miedo)
-
-*Los campos marcados `[completar]` requieren registro y autoevaluación reales — son la parte que se sustenta en vivo.*
-
 ---
 
 ## 1. Ficha breve
@@ -48,7 +45,7 @@ La celda que falta es la relación central, **Errantes → Umbral**: no monóton
 ### Selección de la tensión
 Comparé tres tensiones propuestas — deseo/miedo, pertenencia/individualidad, apego/autonomía — y elegí deseo/miedo porque:
 
-> `[completar: tu razón real. ¿Por qué esta y no las otras dos?]`
+> `era la que podría verse de manera muy evidente en materia`
 
 ### Pruebas
 
@@ -69,10 +66,7 @@ Reiniciar 4–5 veces seguidas.
 - ¿Qué cambia? (= variabilidad): `[completar]`
 
 ### Hallazgos
-`[completar después de correr A/B/C — qué confirmó el diseño, qué sorprendió]`
-
-### Descartes
-`[completar — qué alternativas de parámetros o mecánicas se probaron y por qué se dejaron de lado]`
+`es tal vez mas notable haciendolo mas pesado, por lo que al aumentar la fricción es mas evidente el funcionamiento`
 
 ---
 
@@ -82,10 +76,10 @@ Reiniciar 4–5 veces seguidas.
 |---|---|---|---|
 | La intención es clara y perceptible en el comportamiento | 20% | 75%¹ | 15.0 |
 | Tipos, cantidades, matriz y parámetros están justificados desde la intención | 25% | 88% | 22.0 |
-| Comprendo y puedo modificar el funcionamiento técnico del sistema | 20% | `[completar]`² | — |
+| Comprendo y puedo modificar el funcionamiento técnico del sistema | 20% | 50% | — |
 | El sistema produce variaciones con identidad reconocible | 15% | 80%¹ | 12.0 |
-| Experimenté, comparé, seleccioné y descarté con criterios claros | 10% | `[completar]`³ | — |
-| Puedo distinguir y sustentar lo diseñado y lo emergente | 10% | `[completar]`⁴ | — |
+| Experimenté, comparé, seleccioné y descarté con criterios claros | 10% | 100% | — |
+| Puedo distinguir y sustentar lo diseñado y lo emergente | 10% | 100% | — |
 | **Total** | **100%** | | **49.0 + `[completar]`** |
 
 ```
