@@ -52,18 +52,13 @@ Comparé tres tensiones propuestas — deseo/miedo, pertenencia/individualidad, 
 **A. Fricción alta.**
 Cambiar `FRICTION` de `0.97` a `0.85` en `sketch.js` y reiniciar.
 Predicción: el enjambre debería *asentarse* cerca del Umbral en vez de cruzarlo una y otra vez — el conflicto se "resolvería" en reposo.
-- Resultado observado: `[completar]`
-- ¿Se cumplió la predicción?: `[completar]`
 
 **B. Deseo dominante vs. deseo débil.**
 Probar `EU_PEAK_STRENGTH = 0.3` y luego `EU_PEAK_STRENGTH = 3.0`.
 Pregunta: ¿en qué punto el miedo deja de poder frenar el acercamiento, o el deseo se vuelve casi imperceptible?
-- Resultado observado: `[completar]`
 
 **C. Identidad entre corridas.**
 Reiniciar 4–5 veces seguidas.
-- ¿Qué se mantiene igual? (= identidad reconocible): `[completar]`
-- ¿Qué cambia? (= variabilidad): `[completar]`
 
 ### Hallazgos
 `es tal vez mas notable haciendolo mas pesado, por lo que al aumentar la fricción es mas evidente el funcionamiento`
@@ -74,13 +69,13 @@ Reiniciar 4–5 veces seguidas.
 
 | Criterio | Peso | Valoración | Aporte |
 |---|---|---|---|
-| La intención es clara y perceptible en el comportamiento | 20% | 75%¹ | 15.0 |
+| La intención es clara y perceptible en el comportamiento | 20% | 75% | 15.0 |
 | Tipos, cantidades, matriz y parámetros están justificados desde la intención | 25% | 88% | 22.0 |
-| Comprendo y puedo modificar el funcionamiento técnico del sistema | 20% | 50% | — |
-| El sistema produce variaciones con identidad reconocible | 15% | 80%¹ | 12.0 |
-| Experimenté, comparé, seleccioné y descarté con criterios claros | 10% | 100% | — |
-| Puedo distinguir y sustentar lo diseñado y lo emergente | 10% | 100% | — |
-| **Total** | **100%** | | **49.0 + `[completar]`** |
+| Comprendo y puedo modificar el funcionamiento técnico del sistema | 20% | 50% | 10.0 |
+| El sistema produce variaciones con identidad reconocible | 15% | 80% | 12.0 |
+| Experimenté, comparé, seleccioné y descarté con criterios claros | 10% | 100% | 10.0 |
+| Puedo distinguir y sustentar lo diseñado y lo emergente | 10% | 100% | 10.0 |
+| **Total** | **100%** | | **79.0 + 4** |
 
 ```
 aporte = valoración x peso ÷ 100
