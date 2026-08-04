@@ -75,7 +75,7 @@ Reiniciar 4–5 veces seguidas.
 | El sistema produce variaciones con identidad reconocible | 15% | 80% | 12.0 |
 | Experimenté, comparé, seleccioné y descarté con criterios claros | 10% | 100% | 10.0 |
 | Puedo distinguir y sustentar lo diseñado y lo emergente | 10% | 100% | 10.0 |
-| **Total** | **100%** | | **79.0 + 4** |
+| **Total** | **100%** | | **79.0 + 4.0** |
 
 ```
 aporte = valoración x peso ÷ 100
